@@ -1,0 +1,11 @@
+<div class="liste">
+  <div *ngFor="let livre of livres" class="carte">
+    <h3>{{ livre.titre }}</h3>
+    <p>{{ livre.auteur }} — {{ livre.annee }}</p>
+    <span [class]="livre.disponible ? 'dispo' : 'indispo'">
+      {{ livre.disponible ? 'Disponible' : 'Indisponible' }}
+    </span>
+    <button [routerLink]="['/livres', livre.id]">Voir le détail</button>
+    <button [routerLink]="['/modifier', livre.id]">Modifier</button>
+  </div>
+</div>

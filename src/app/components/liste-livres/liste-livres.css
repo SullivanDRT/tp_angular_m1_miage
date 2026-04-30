@@ -1,0 +1,9 @@
+.dispo {
+  color: green;
+  font-weight: bold;
+}
+
+.indispo {
+  color: red;
+  font-weight: bold;
+}
