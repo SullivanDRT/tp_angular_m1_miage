@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Livre } from '../../models/livre.model';
+import { LivreService } from '../../services/livre.service';
 
 @Component({
   selector: 'app-detail-livre',
@@ -9,13 +11,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './detail-livre.html',
   styleUrl: './detail-livre.css',
 })
-export class DetailLivreComponent implements OnInit {
-  livreId: number = 0;
-
-  constructor(private route: ActivatedRoute) {}
-
+export class DetailLivre implements OnInit {
+  livre: Livre | null = null;
+  constructor(private route: ActivatedRoute, private livreService: LivreService, private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
-    this.livreId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('ID du livre :', this.livreId);
+    const id: string  = this.route.snapshot.paramMap.get('id') || '';
+    this.livreService.getLivreById(id).subscribe({
+      next: (data) => {this.livre = data; this.cdr.detectChanges()},
+      error: () => {this.livre = null; this.cdr.detectChanges();}
+    });
   }
 }

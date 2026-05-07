@@ -7,3 +7,72 @@
   color: red;
   font-weight: bold;
 }
+.liste {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille CSS */
+  gap: 25px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Tablette : passage à 2 colonnes */
+@media (min-width: 768px) {
+  .liste {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop : passage à 3 colonnes (quand il y a la place) */
+@media (min-width: 1024px) {
+  .liste {
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+  }
+}
+
+/* Champ de recherche stylé */
+.recherche {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recherche input {
+  width: 60%;
+  padding: 12px 20px;
+  border: 2px solid var(--color-accent);
+  border-radius: 25px;
+  outline: none;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.recherche input:focus {
+  border-color: var(--color-primary);
+  width: 65%;
+}
+
+/* Cartes de livres */
+.carte {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 8px solid; /* Couleur dynamique */
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carte:hover { transform: scale(1.03); }
+
+/* Couleurs distinctes selon disponibilité */
+.carte.disponible { border-left-color: var(--color-success); }
+.carte.indisponible { border-left-color: var(--color-danger); }
+
+.carte h3 { margin: 0; color: var(--color-primary); }
+
+.carte button {
+  margin-top: auto;
+  font-size: 0.9rem;
+}

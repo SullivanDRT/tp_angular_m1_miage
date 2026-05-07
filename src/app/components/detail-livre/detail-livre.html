@@ -1,3 +1,26 @@
-<h2>Détail du livre #{{ livreId }}</h2>
-<p>Les données complètes seront chargées depuis l'API en Partie 3.</p>
-<button routerLink="/livres">← Retour à la liste</button>
+<div *ngIf="livre; else notFound" class="container-detail">
+  <h2>{{ livre.titre }}</h2>
+  
+  <div class="info-groupe">
+    <p><strong>Auteur :</strong> {{ livre.auteur }}</p>
+    <p><strong>Année :</strong> {{ livre.annee }}</p>
+    <p>
+      <strong>Statut :</strong> 
+      <span class="status-label" [ngClass]="livre.disponible ? 'text-success' : 'text-danger'">
+        {{ livre.disponible ? 'Disponible' : 'Indisponible' }}
+      </span>
+    </p>
+  </div>
+
+  <div class="actions-detail">
+    <button [routerLink]="['/modifier', livre.id]" class="btn-modifier">Modifier</button>
+    <button routerLink="/livres" class="btn-retour">← Retour à la liste</button>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="container-detail">
+    <p class="erreur-champ">Livre introuvable.</p>
+    <button routerLink="/livres">Retour au catalogue</button>
+  </div>
+</ng-template>

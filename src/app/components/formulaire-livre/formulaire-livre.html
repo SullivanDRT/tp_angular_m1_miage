@@ -1,1 +1,39 @@
-<p>formulaire-livre works!</p>
+<h2>{{ isModification ? 'Modifier le livre' : 'Ajouter un nouveau livre' }}</h2>
+<form [formGroup]="livreForm" (ngSubmit)="onSubmit()">
+  <div class="champ">
+    <label for="titre">Titre *</label>
+    <input id="titre" type="text" formControlName="titre" />
+    <span class="erreur-champ"
+      *ngIf="livreForm.get('titre')?.invalid && livreForm.get('titre')?.touched">
+      Le titre est requis (minimum 2 caractères).
+    </span>
+  </div>
+  <div class="champ">
+    <label for="auteur">Auteur *</label>
+    <input id="auteur" type="text" formControlName="auteur" />
+    <span class="erreur-champ"
+      *ngIf="livreForm.get('auteur')?.invalid && livreForm.get('auteur')?.touched">
+      Le nom de l'auteur est requis (minimum 3 caractères).
+    </span>
+  </div>
+  <div class="champ">
+    <label for="annee">Année de publication *</label>
+    <input id="annee" type="number" formControlName="annee" />
+    <span class="erreur-champ"
+      *ngIf="livreForm.get('annee')?.invalid && livreForm.get('annee')?.touched">
+      L'année doit être comprise entre 1800 et 2030.
+    </span>
+  </div>
+  <div class="champ">
+    <label>
+      <input type="checkbox" formControlName="disponible" />
+      Disponible immédiatement
+    </label>
+  </div>
+  <div class="actions">
+    <button type="submit" [disabled]="livreForm.invalid">
+      {{ isModification ? 'Enregistrer les modifications' : 'Ajouter le livre' }}
+    </button>
+    <button type="button" routerLink="/livres">Annuler</button>
+  </div>
+</form>

@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { ListeLivres } from './components/liste-livres/liste-livres';
-import { DetailLivreComponent } from './components/detail-livre/detail-livre';
+import { DetailLivre } from './components/detail-livre/detail-livre';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'livres', pathMatch: 'full' },
   { path: 'livres', component: ListeLivres },
-  { path: 'livres/:id', component: DetailLivreComponent },
+  { path: 'livres/:id', component: DetailLivre },
   {
     path: 'ajouter',
     loadComponent: () =>

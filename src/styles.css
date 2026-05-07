@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+/* Palette de couleurs & Variables */
+:root {
+  --color-primary: #5d4037;    /* Marron foncé */
+  --color-secondary: #8d6e63;  /* Marron moyen */
+  --color-accent: #d7ccc8;     /* Beige clair */
+  --color-bg: #fdfaf6;         /* Fond crème */
+  --color-text: #3e2723;
+  --color-success: #2e7d32;    /* Vert pour Disponible */
+  --color-danger: #c62828;     /* Rouge pour Indisponible */
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Animations globales */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Boutons génériques avec Hover Effect */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-secondary);
+  color: white;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
