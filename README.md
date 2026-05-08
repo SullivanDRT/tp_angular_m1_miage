@@ -1,59 +1,92 @@
-# Bibliotheque
+# BiblioApp — Gestion de Bibliothèque
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+Sullivan DEMARET — M1 MIAGE — Mai 2026
 
-## Development server
+## Description
 
-To start a local development server, run:
+Application web de gestion de bibliothèque développée avec Angular. Elle permet de gérer un catalogue de livres avec des fonctionnalités CRUD complètes (Créer, Lire, Modifier, Supprimer), une recherche avancée, des filtres, et un système d'authentification simulé.
+
+## Prérequis
+
+- Node.js v18+
+- Angular CLI : `npm install -g @angular/cli`
+- JSON Server : `npm install -g json-server`
+
+## Lancer le projet
 
 ```bash
+# Installation des dépendances
+npm install
+
+# Terminal 1 : Lancer le serveur JSON (API REST simulée)
+json-server --watch db.json --port 3000
+
+# Terminal 2 : Lancer l'application Angular
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Ouvrir : [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+## Fonctionnalités/Bonus réalisées (Tous les Tps ont été réalisés)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Gestion des livres
+- ✅ Affichage de la liste des livres avec cards stylisées
+- ✅ Détail d'un livre (page dédiée)
+- ✅ Ajout d'un nouveau livre (formulaire réactif avec validations)
+- ✅ Modification d'un livre existant
+- ✅ Suppression d'un livre avec confirmation
 
-```bash
-ng generate component component-name
+### Recherche et filtres
+- ✅ Recherche par titre ou auteur
+- ✅ Filtre par disponibilité (Tous / Disponibles / Indisponibles)
+- ✅ Tri par titre (A→Z, Z→A) ou par année (croissant/décroissant)
+- ✅ Pagination (5 livres par page) avec boutons Précédent/Suivant
+
+### UX / UI
+- ✅ Notification pop-up verte après ajout ou modification réussie (disparaît après 5 secondes)
+- ✅ Indicateur de chargement (spinner)
+- ✅ Messages d'erreur en cas de problème de connexion à l'API
+
+### Pipes
+
+- ✅ Pipe personnalisé `depuisAnnee` : affiche "publié il y a N ans"
+
+### Guards et sécurité
+- ✅ `authGuard` : protection des routes d'ajout/modification (authentification requise)
+- ✅ `unsavedChangesGuard` : confirmation avant de quitter un formulaire modifié non sauvegardé
+- ✅ Boutons Connexion / Déconnexion dans la Navbar
+
+### Communication entre composants
+- ✅ `@Input` : passage du nombre total de livres à la Navbar
+- ✅ `@Output` : émission du compteur depuis ListeLivres vers App
+
+## Structure du projet
+
+```
+src/app/
+├── components/
+│   ├── detail-livre/
+│   ├── formulaire-livre/
+│   ├── liste-livres/
+│   └── navbar/
+├── guards/
+│   ├── auth.guard.ts
+│   └── unsaved-changes.guard.ts
+├── models/
+│   └── livre.model.ts
+├── pipes/
+│   └── depuis-annee.pipe.ts
+├── services/
+│   ├── auth.service.ts
+│   ├── livre.service.ts
+│   └── notification.service.ts
+└── app.routes.ts
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Technologies utilisées
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 21
+- TypeScript
+- RxJS
+- JSON Server (API REST simulée)
+- CSS3 (variables, flexbox, grid, animations)

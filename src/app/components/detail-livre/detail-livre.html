@@ -1,11 +1,11 @@
 <div *ngIf="livre; else notFound" class="container-detail">
   <h2>{{ livre.titre }}</h2>
-  
+
   <div class="info-groupe">
     <p><strong>Auteur :</strong> {{ livre.auteur }}</p>
-    <p><strong>Année :</strong> {{ livre.annee }}</p>
+    <p><strong>Année :</strong> {{ livre.annee }} ({{ livre.annee | depuisAnnee }})</p>
     <p>
-      <strong>Statut :</strong> 
+      <strong>Statut :</strong>
       <span class="status-label" [ngClass]="livre.disponible ? 'text-success' : 'text-danger'">
         {{ livre.disponible ? 'Disponible' : 'Indisponible' }}
       </span>

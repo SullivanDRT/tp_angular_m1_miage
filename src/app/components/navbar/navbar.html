@@ -1,7 +1,16 @@
 <nav>
   <h1>{{ titre }}</h1>
+  <span class="badge">{{ totalLivres }} livres</span>
   <ul>
     <li><a routerLink="/livres" routerLinkActive="actif">Catalogue</a></li>
     <li><a routerLink="/ajouter" routerLinkActive="actif">+ Ajouter un livre</a></li>
   </ul>
+  <div class="auth-buttons">
+    <button *ngIf="!authService.estConnecte()" (click)="authService.seConnecter()" class="btn-connexion">
+      Se connecter
+    </button>
+    <button *ngIf="authService.estConnecte()" (click)="authService.seDeconnecter()" class="btn-deconnexion">
+      Se déconnecter
+    </button>
+  </div>
 </nav>

@@ -1,50 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Palette de couleurs & Variables */
 :root {
-  --color-primary: #5d4037;    /* Marron foncé */
-  --color-secondary: #8d6e63;  /* Marron moyen */
-  --color-accent: #d7ccc8;     /* Beige clair */
-  --color-bg: #fdfaf6;         /* Fond crème */
-  --color-text: #3e2723;
-  --color-success: #2e7d32;    /* Vert pour Disponible */
-  --color-danger: #c62828;     /* Rouge pour Indisponible */
-  --shadow: 0 4px 6px rgba(0,0,0,0.1);
-  --transition: all 0.3s ease;
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+  --color-secondary: #a78bfa;
+  --color-accent: #f0abfc;
+  --color-bg: #0f0e17;
+  --color-bg-card: rgba(255, 255, 255, 0.05);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.08);
+  --color-text: #fffffe;
+  --color-text-muted: #a7a9be;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-bg);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(240, 171, 252, 0.04) 0%, transparent 50%);
 }
 
 /* Animations globales */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Boutons génériques avec Hover Effect */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* Boutons */
 button {
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
   border: none;
-  background-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: white;
   transition: var(--transition);
-  font-weight: 500;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
 }
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before { left: 100%; }
 
 button:hover {
-  background-color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
+button:active { transform: translateY(-1px); }
+
 button:disabled {
-  background-color: #ccc;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-muted);
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
+
+/* Links globaux */
+a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover { color: var(--color-accent); }

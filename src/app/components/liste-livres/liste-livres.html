@@ -1,26 +1,54 @@
-<div class="liste">
-  <div *ngIf="isLoading" class="spinner">Chargement en cours...</div>
-  <div *ngIf="erreur" class="erreur">{{ erreur }}</div>
-  <div *ngIf="!isLoading && !erreur" class="liste">
+<div *ngIf="isLoading" class="spinner">Chargement en cours...</div>
+<div *ngIf="erreur" class="erreur">{{ erreur }}</div>
+
+<div *ngIf="!isLoading && !erreur">
   <div class="recherche">
-    <input type="text" [(ngModel)]="recherche" placeholder="Rechercher par titre ou auteur..." />
+    <div class="recherche-row">
+      <div class="recherche-input-wrapper">
+        <span class="recherche-icon">🔍</span>
+        <input type="text" [(ngModel)]="recherche" placeholder="Rechercher par titre ou auteur..." />
+      </div>
+      <div class="filtre-dispo">
+        <label><input type="radio" name="dispo" value="tous" [(ngModel)]="filtreDispo" /> Tous</label>
+        <label><input type="radio" name="dispo" value="disponibles" [(ngModel)]="filtreDispo" /> Disponibles</label>
+        <label><input type="radio" name="dispo" value="indisponibles" [(ngModel)]="filtreDispo" /> Indisponibles</label>
+      </div>
+      <div class="filtre-tri">
+        <label for="tri">Trier par :</label>
+        <select id="tri" [(ngModel)]="tri">
+          <option value="titre-asc">Titre A → Z</option>
+          <option value="titre-desc">Titre Z → A</option>
+          <option value="annee-asc">Année croissante</option>
+          <option value="annee-desc">Année décroissante</option>
+        </select>
+      </div>
+    </div>
     <p>{{ livresFiltres.length }} résultat(s) trouvé(s)</p>
   </div>
-  <div *ngFor="let livre of livresFiltres" [ngClass]="{
-    'carte': true,
-    'disponible': livre.disponible,
-    'indisponible': !livre.disponible
-  }">
-    <h3>{{ livre.titre | uppercase }}</h3>
-    <p>{{ livre.auteur | titlecase }} — {{ livre.annee }}</p>
-    <span [ngStyle]="{
-      color: livre.disponible ? 'green' : 'red',
-      fontWeight: 'bold'
+
+  <div class="grille">
+    <div *ngFor="let livre of livresPagines" [ngClass]="{
+      'carte': true,
+      'disponible': livre.disponible,
+      'indisponible': !livre.disponible
     }">
-      {{ livre.disponible ? 'Disponible' : 'Indisponible' }}
-    </span>
-    <button [routerLink]="['/livres', livre.id]">Voir le détail</button>
-    <button [routerLink]="['/modifier', livre.id]">Modifier</button>
-    <button (click)="supprimerLivre(livre.id!)">Supprimer</button>
+      <h3>{{ livre.titre | uppercase }}</h3>
+      <p>{{ livre.auteur | titlecase }} — {{ livre.annee }} ({{ livre.annee | depuisAnnee }})</p>
+      <span [ngStyle]="{
+        color: livre.disponible ? 'green' : 'red',
+        fontWeight: 'bold'
+      }">
+        {{ livre.disponible ? 'Disponible' : 'Indisponible' }}
+      </span>
+      <button [routerLink]="['/livres', livre.id]">Voir le détail</button>
+      <button [routerLink]="['/modifier', livre.id]">Modifier</button>
+      <button (click)="supprimerLivre(livre.id!)">Supprimer</button>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="pagePrecedente()" [disabled]="page === 1">Précédent</button>
+    <span>Page {{ page }} / {{ totalPages }}</span>
+    <button (click)="pageSuivante()" [disabled]="page === totalPages">Suivant</button>
   </div>
 </div>

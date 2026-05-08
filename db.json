@@ -1,0 +1,243 @@
+{
+  "livres": [
+    {
+      "titre": "Clean Code",
+      "auteur": "Robert C. Martin",
+      "annee": 2001,
+      "disponible": true,
+      "id": "1"
+    },
+    {
+      "titre": "Design Patterns",
+      "auteur": "Gang of Four",
+      "annee": 1994,
+      "disponible": false,
+      "id": "3"
+    },
+    {
+      "titre": "Refactoring",
+      "auteur": "Martin Fowler",
+      "annee": 2018,
+      "disponible": true,
+      "id": "4"
+    },
+    {
+      "titre": "Introduction to Algorithms",
+      "auteur": "Thomas Cormen",
+      "annee": 2009,
+      "disponible": true,
+      "id": "5"
+    },
+    {
+      "titre": "Structure and Interpretation of Computer Programs",
+      "auteur": "Harold Abelson",
+      "annee": 1996,
+      "disponible": false,
+      "id": "6"
+    },
+    {
+      "titre": "The Art of Computer Programming",
+      "auteur": "Donald Knuth",
+      "annee": 1968,
+      "disponible": true,
+      "id": "7"
+    },
+    {
+      "titre": "Code Complete",
+      "auteur": "Steve McConnell",
+      "annee": 2004,
+      "disponible": true,
+      "id": "8"
+    },
+    {
+      "titre": "Mythical Man-Month",
+      "auteur": "Frederick Brooks",
+      "annee": 1975,
+      "disponible": false,
+      "id": "9"
+    },
+    {
+      "titre": "Domain-Driven Design",
+      "auteur": "Eric Evans",
+      "annee": 2003,
+      "disponible": true,
+      "id": "10"
+    },
+    {
+      "titre": "Head First Design Patterns",
+      "auteur": "Eric Freeman",
+      "annee": 2004,
+      "disponible": true,
+      "id": "11"
+    },
+    {
+      "titre": "Effective Java",
+      "auteur": "Joshua Bloch",
+      "annee": 2018,
+      "disponible": true,
+      "id": "12"
+    },
+    {
+      "titre": "JavaScript: The Good Parts",
+      "auteur": "Douglas Crockford",
+      "annee": 2008,
+      "disponible": false,
+      "id": "13"
+    },
+    {
+      "titre": "You Don't Know JS",
+      "auteur": "Kyle Simpson",
+      "annee": 2015,
+      "disponible": true,
+      "id": "14"
+    },
+    {
+      "titre": "Eloquent JavaScript",
+      "auteur": "Marijn Haverbeke",
+      "annee": 2018,
+      "disponible": true,
+      "id": "15"
+    },
+    {
+      "titre": "Learning Python",
+      "auteur": "Mark Lutz",
+      "annee": 2013,
+      "disponible": false,
+      "id": "16"
+    },
+    {
+      "titre": "Python Crash Course",
+      "auteur": "Eric Matthes",
+      "annee": 2019,
+      "disponible": true,
+      "id": "17"
+    },
+    {
+      "titre": "Fluent Python",
+      "auteur": "Luciano Ramalho",
+      "annee": 2015,
+      "disponible": true,
+      "id": "18"
+    },
+    {
+      "titre": "Clean Architecture",
+      "auteur": "Robert C. Martin",
+      "annee": 2017,
+      "disponible": true,
+      "id": "19"
+    },
+    {
+      "titre": "The Clean Coder",
+      "auteur": "Robert C. Martin",
+      "annee": 2011,
+      "disponible": false,
+      "id": "20"
+    },
+    {
+      "titre": "Patterns of Enterprise Application Architecture",
+      "auteur": "Martin Fowler",
+      "annee": 2002,
+      "disponible": true,
+      "id": "21"
+    },
+    {
+      "titre": "Working Effectively with Legacy Code",
+      "auteur": "Michael Feathers",
+      "annee": 2004,
+      "disponible": true,
+      "id": "22"
+    },
+    {
+      "titre": "Continuous Delivery",
+      "auteur": "Jez Humble",
+      "annee": 2010,
+      "disponible": false,
+      "id": "23"
+    },
+    {
+      "titre": "Test Driven Development",
+      "auteur": "Kent Beck",
+      "annee": 2002,
+      "disponible": true,
+      "id": "24"
+    },
+    {
+      "titre": "Agile Software Development",
+      "auteur": "Robert C. Martin",
+      "annee": 2018,
+      "disponible": true,
+      "id": "25"
+    },
+    {
+      "titre": "The Phoenix Project",
+      "auteur": "Gene Kim",
+      "annee": 2013,
+      "disponible": true,
+      "id": "26"
+    },
+    {
+      "titre": "Release It!",
+      "auteur": "Michael Nygard",
+      "annee": 2007,
+      "disponible": false,
+      "id": "27"
+    },
+    {
+      "titre": "Microservices Patterns",
+      "auteur": "Chris Richardson",
+      "annee": 2018,
+      "disponible": true,
+      "id": "28"
+    },
+    {
+      "titre": "Building Microservices",
+      "auteur": "Sam Newman",
+      "annee": 2015,
+      "disponible": true,
+      "id": "29"
+    },
+    {
+      "titre": "Designing Data-Intensive Applications",
+      "auteur": "Martin Kleppmann",
+      "annee": 2017,
+      "disponible": true,
+      "id": "30"
+    },
+    {
+      "titre": "Software Engineering at Google",
+      "auteur": "Titus Winters",
+      "annee": 2020,
+      "disponible": false,
+      "id": "31"
+    },
+    {
+      "titre": "Accelerate",
+      "auteur": "Nicole Forsgren",
+      "annee": 2017,
+      "disponible": true,
+      "id": "32"
+    },
+    {
+      "titre": "zerzerezrze",
+      "auteur": "zerzerez",
+      "annee": 2000,
+      "disponible": true,
+      "id": "O2DK13PdKTo"
+    },
+    {
+      "titre": "fsdf",
+      "auteur": "sdfsdfs",
+      "annee": 2012,
+      "disponible": true,
+      "id": "xyC0QmP95_o"
+    },
+    {
+      "titre": "qsdqsd",
+      "auteur": "qsdqsd",
+      "annee": 2000,
+      "disponible": true,
+      "id": "y3OLfca8NN4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

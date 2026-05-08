@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Livre } from '../../models/livre.model';
 import { LivreService } from '../../services/livre.service';
+import { DepuisAnneePipe } from '../../pipes/depuis-annee.pipe';
 
 @Component({
   selector: 'app-detail-livre',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, DepuisAnneePipe],
   templateUrl: './detail-livre.html',
   styleUrl: './detail-livre.css',
 })

@@ -1,81 +1,105 @@
 /* Conteneur principal avec animation */
 .container-detail {
-  max-width: 600px;
-  margin: 50px auto;
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  max-width: 550px;
+  margin: 60px auto;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  padding: 48px;
+  border-radius: var(--radius);
   text-align: center;
-  border-top: 8px solid var(--color-primary);
-  animation: fadeIn 0.6s ease-out; /* Animation définie dans styles.css */
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.container-detail::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
 }
 
 .container-detail h2 {
-  font-size: 2.2rem;
-  color: var(--color-primary);
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--color-accent);
-  padding-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-text), var(--color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .info-groupe {
-  margin: 25px 0;
-  font-size: 1.1rem;
+  margin: 28px 0;
+  font-size: 1.05rem;
 }
 
 .info-groupe p {
-  margin: 10px 0;
+  margin: 12px 0;
+  color: var(--color-text-muted);
+}
+
+.info-groupe p strong {
+  color: var(--color-text);
 }
 
 /* Badge de statut */
 .status-label {
   display: inline-block;
-  padding: 6px 18px;
-  border-radius: 20px;
-  font-weight: bold;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
   margin-left: 5px;
-  background-color: #f8f9fa;
-  border: 1px solid currentColor;
+  letter-spacing: 0.3px;
 }
 
-.text-success { 
-  color: var(--color-success); 
-  background-color: rgba(46, 125, 50, 0.1); 
+.text-success {
+  color: var(--color-success);
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.25);
 }
 
-.text-danger { 
-  color: var(--color-danger); 
-  background-color: rgba(198, 40, 40, 0.1); 
+.text-danger {
+  color: var(--color-danger);
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.25);
 }
 
 /* Actions et Boutons */
 .actions-detail {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
+  gap: 16px;
+  margin-top: 36px;
 }
 
 .btn-modifier {
-  background-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
 }
 
 .btn-retour {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
 }
 
 .btn-retour:hover {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
+  background: var(--color-bg-card-hover);
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Style spécifique pour le template notFound */
 .erreur-champ {
   color: var(--color-danger);
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 20px;
 }
